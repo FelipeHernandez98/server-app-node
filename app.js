@@ -1,9 +1,15 @@
-const http = require('http');
+const express = require('express')
+const app = express()
+const port = 3000;
 
-http.createServer((req, res)=>{
-    res.write('Hola mundo');
-    res.end();
+app.get('/',  (req, res) => {
+  res.send('Home page')
 })
-.listen(4000);
 
-console.log('Escuchando en el puerto 4000');
+app.get('/hola-mundo',  (req, res) =>{
+    res.send('Hello World')
+  })
+
+app.listen(port,()=>{
+    console.log(`Aplicacion corriendo en el puerto ${port}`);
+});
